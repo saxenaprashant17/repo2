@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="Handles events for the Taxes and Fees component" >
-	<aura:attribute name="message" type="String"/>
-</aura:event>

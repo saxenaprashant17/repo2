@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
-    <links>Grant_Login_Access</links>
-    <links>Request_Additional_Users</links>
-    <links>Create_Support_Case</links>
-    <pageComponentType>links</pageComponentType>
-</HomePageComponent>

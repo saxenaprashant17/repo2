@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Coverage Schedule Connection Fix - Quote To Policy</description>
-    <label>Close Quote</label>
-    <processType>Flow</processType>
-</Flow>

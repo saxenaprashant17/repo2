@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>update account name remove hyphen- update quote to lastname and type</description>
-    <label>Benefits Individual</label>
-    <processType>Flow</processType>
-</Flow>
