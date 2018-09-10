@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>now can add as many properties and insureds as you want.
+Automatically connects auto insureds if this quote cam from and auto quote</description>
+    <label>Quote Personal Home</label>
+    <processType>Flow</processType>
+</Flow>

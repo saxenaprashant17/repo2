@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Updated Account create to happen after person or business is choosen and unclude primary contact in creation of Account.</description>
+    <label>Short Form</label>
+    <processType>Flow</processType>
+</Flow>

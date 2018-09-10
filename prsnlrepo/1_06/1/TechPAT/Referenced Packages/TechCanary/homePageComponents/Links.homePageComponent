@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <links>All_Quotes_Master_Entry</links>
+    <links>New_Customer</links>
+    <links>New_Business_Opportunity</links>
+    <links>Todays_Tasks</links>
+    <links>Tomorrow_s_Tasks</links>
+    <links>Next_7_Days_Tasks</links>
+    <pageComponentType>links</pageComponentType>
+</HomePageComponent>

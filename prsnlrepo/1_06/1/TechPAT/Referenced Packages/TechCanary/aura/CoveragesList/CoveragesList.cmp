@@ -1,0 +1,72 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="CanaryAMS.CoveragesListController">
+	<aura:handler name="coveragesListEvent" event="CanaryAMS:CoveragesListEvent" action="{!c.handleEvent}"/>
+	<aura:attribute name="recordId" type="Id" />
+	<aura:attribute name="coverageObjectPrefix" type="String" />
+	<aura:attribute name="showNewRow" type="Boolean" />
+	<aura:attribute name="coverages" type="CanaryAMS__Coverage__c[]" default="{ 'sobjectType':'CanaryAMS__Coverage__c' }"/>
+	<aura:attribute name="coveragesMap" type="Map" />
+	<aura:attribute name="showRelatedToColumn" type="Boolean" default="false" />
+	<aura:attribute name="showFullComponent" type="Boolean" default="false" />
+	<aura:attribute name="coveragesSize" type="Integer" default="0" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	    <lightning:card class="slds-card_boundary" iconName="custom:custom43">
+	        <aura:set attribute="title">
+	        	<strong>Coverages ({!v.coveragesSize})</strong>
+	        </aura:set>
+		    		    
+	        <aura:set attribute="actions">
+	            <lightning:button label="New" onclick="{!c.newCoverage}" />
+	        </aura:set>
+
+			<aura:if isTrue="{!v.showFullComponent}">
+				<div class="slds-table--header-fixed_container" >
+					<div class="slds-scrollable_y" style="max-height: 400px;">
+						<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout slds-table--header-fixed">
+			  				<thead>
+			    				<tr class="slds-text-title_caps">
+			      					<th scope="col" width="250px">
+			        					<div class="slds-truncate slds-cell-fixed" title="Name">Name</div>
+			      					</th>
+			      					<aura:if isTrue="{!v.showRelatedToColumn}">
+										<th scope="col">
+											<div class="slds-truncate slds-cell-fixed floating-div-left-padding" title="Related To">Related To</div>
+										</th>
+									</aura:if>
+									<th scope="col">
+										<div class="slds-truncate slds-cell-fixed floating-div-left-padding" title="Limit 1">Limit 1</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate slds-cell-fixed floating-div-left-padding" title="Limit 2">Limit 2</div>
+									</th>
+									<th scope="col" width="175px">
+										<div class="slds-truncate slds-cell-fixed floating-div-left-padding" title="Deductible">Deductible ($/%)</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate slds-cell-fixed floating-div-left-padding" title="Term Amount">Term Amount</div>
+									</th>
+									<th style="width: 60px;"></th>
+			    				</tr>
+			  				</thead>
+			  				<tbody>
+			  					<aura:if isTrue="{!v.showNewRow}">
+									<CanaryAMS:CoveragesListNewRow parentRecordId="{!v.recordId}" coveragesMap="{!v.coveragesMap}" showRelatedToColumn="{!v.showRelatedToColumn}" />
+								</aura:if>
+			  					<aura:iteration items="{!v.coverages}" var="c">
+									<CanaryAMS:CoveragesListRow coverage="{!c}" parentRecordId="{!v.recordId}" coveragesMap="{!v.coveragesMap}" showRelatedToColumn="{!v.showRelatedToColumn}"/>
+								</aura:iteration>
+			  				</tbody>
+						</table>
+					</div>
+				</div> 
+			</aura:if>
+
+			<aura:if isTrue="{!v.showFullComponent}">	        
+		       	<footer class="slds-card__footer">
+		       		&nbsp;
+			    </footer>
+			</aura:if>
+
+	    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,64 @@
+<aura:component description="UITaxesAndFees" implements="flexipage:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="CanaryAMS.UIController" access="global">
+    <aura:attribute name="taxesAndFeesWrapper" type="CanaryAMS.UITaxesAndFees" />
+    <aura:attribute name="editRecord" type="Object" />
+    <aura:attribute name="showList" type="Boolean" default="true" />
+    <aura:attribute name="showEditPanel" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showMsg" type="Boolean" default="false"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:handler name="change" value="{!v.editRecord}" action="{!c.addRecord}"/>
+    <div class="slds-page-header slds-grid slds-grid--vertical-align-center">
+        <lightning:buttonIcon iconName="utility:down" variant="bare" size="medium" alternativeText="Show Taxes and Fees" iconClass="dark" class="slds-m-right--x-small" onclick="{!c.showList}" />
+        <h1>Taxes &amp; Fees</h1>
+    </div>
+    <aura:if isTrue="{!v.showMsg}">
+        <div class="slds-size--1-of-1" aura:id="uiMessageDiv">
+            <ui:message aura:id="uiMessage">
+                <div class="slds-size--1-of-1">
+                    <lightning:buttonIcon alternativeText="Close UI Message" iconName="utility:close" variant="bare" onclick="{!c.hideUIMessage}" class="slds-float--right" />
+                </div>
+                <div class="slds-size--1-of-1">
+                    <ui:outputText value=" " aura:id="msgText" />
+                </div>
+            </ui:message>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.showList}">
+        <table class="slds-table slds-table--bordered">
+            <thead class="slds-text-heading--label">
+            <th width="10%"></th> <!-- empty header for checkbox column -->
+            <th width="40%" title="Category">Category</th>
+            <th width="30%" title="Description">Description</th>
+            <th width="20%" title="Amount">Amount</th>
+            </thead>
+        </table>
+
+            <table class="slds-table slds-table--bordered">
+                <tbody>
+                    <aura:iteration items="{!v.taxesAndFeesWrapper.taxesAndFees}" var="rec">
+                                <CanaryAMS:pnlTaxesAndFees record="{!rec}" picklistValues="{!v.taxesAndFeesWrapper.pickListValues}"/>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        <div class="slds-grid slds-size--1-of-1 slds-m-top--medium">
+            <div class="slds-size--1-of-2">
+                <lightning:button name="btnAdd" aura:id="btnAdd" label="Add New" onclick="{!c.btnAddClick}"/>
+            </div>
+            <div class="slds-size--1-of-2">
+                <lightning:button name="btnSave" aura:id="btnSave" label="Save" onclick="{!c.saveUITaxesAndFees}" class="slds-float--right slds-m-right--medium"/>
+            </div>
+        </div>
+    <div class="slds-table slds-size--1-of-1 slds-m-top--medium slds-table--bordered">
+        <aura:if isTrue="{!v.showEditPanel}">
+            <table width="100%" class="slds-box--border">
+                <thead>
+                    <!-- add a close button here -->
+                </thead>
+                <tbody>
+                    <CanaryAMS:pnlTaxesAndFees record="{!v.editRecord}" picklistValues="{!v.taxesAndFeesWrapper.pickListValues}" isAdd="true"/>
+            </tbody>
+            </table>
+        </aura:if>
+    </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,11 @@
+.THIS .slds-form-element__control {
+	width: 100%;
+}
+
+.THIS span.slds-input {
+	overflow: hidden;
+}
+
+.THIS .deductible-type {
+	width: 50px;
+}

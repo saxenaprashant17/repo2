@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>added applicant/co applicant
+added state picklist
+Removed multiple elements for insured and vehicle and looped them
+added homeowner subflow with correct recordtypeid</description>
+    <label>Quote Personal Auto</label>
+    <processType>Flow</processType>
+</Flow>

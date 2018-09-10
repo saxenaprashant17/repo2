@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayouts>
+        <fullName>TC_AMS</fullName>
+        <fields>Name</fields>
+        <fields>Phone</fields>
+        <fields>OwnerId</fields>
+        <fields>Primary_Contact__c</fields>
+        <fields>Account_Source__c</fields>
+        <fields>LastModifiedById</fields>
+        <label>TC-AMS</label>
+    </compactLayouts>
+    <fields>
+        <fullName>Account_ExternalId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Not used by the end user -- Used for a Unique ID for the Account.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Not used by the end user -- Used for a Unique ID for the Account.</inlineHelpText>
+        <label>Account ExternalId</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Not used by the end user -- Used for a Unique ID for the Account.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Not used by the end user -- Used for a Unique ID for the Account.</inlineHelpText>
+        <label>Account External Id</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Source__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Source of the Account. What Source did the Account originate from; will be one step below the Source Type in the hierarchy. Customer Referral, Google Ad, LinkedIn Ad, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Source of the Account. What Source did the Account originate from; will be one step below the Source Type in the hierarchy. Customer Referral, Google Ad, LinkedIn Ad, etc.</inlineHelpText>
+        <label>Source</label>
+        <referenceTo>Source__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Sub_Sub_Source__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Sub Sub Source of the Account. What Sub Sub Source did the Account originate from; one step below Sub Source in the hierarchy. Specific Ad/Marketing Campaign for Google Search, Specific Ad/Marketing Campaign for LinkedIn Ad, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Sub Sub Source of the Account. What Sub Sub Source did the Account originate from; one step below Sub Source in the hierarchy. Specific Ad Campaign for Google Search, Specific Ad/Marketing Campaign for LinkedIn Ad, etc.</inlineHelpText>
+        <label>Sub Sub-Source</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Subsource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Sub Source of the Account. What Sub Source did the Account originate from; will be one step below Source in the hierarchy. Name of Customer who Referred, Google Search for Insurance, LinkedIn Home Page Ad, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Sub Source of the Account. What Sub Source did the Account originate from; will be one step below Source in the hierarchy. Name of Customer who Referred, Google Search for Insurance, LinkedIn Home Page Ad, etc.</inlineHelpText>
+        <label>Sub Source</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Sub_Source__c.Source__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account_Source__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Sub_Source__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record if the Account is Active or Not-Active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record if the Account is Active or Not-Active</inlineHelpText>
+        <label>Active</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Address of the Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Address of the Account.</inlineHelpText>
+        <label>Address</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agency_New_Business_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Effective Date of the first Policy sold to this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Effective Date of the first Policy sold to this Account.</inlineHelpText>
+        <label>Agency New Business Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Billing_County__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing County</label>
+        <length>70</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Birthdate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Birthdate of the Primary Contact for this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Birthdate of the Primary Contact for this Account.</inlineHelpText>
+        <label>Birthdate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record any Business Notes related to this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record any Business Notes related to this Account.</inlineHelpText>
+        <label>Business Notes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Business_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Business Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Structure__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the type of Business Structure for this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the type of Business Structure for this Account.</inlineHelpText>
+        <label>Business Structure</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Individual/Sole Proprietor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C Corporation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>S Corporation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LLC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nonprofit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Partnership</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Joint Venture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unincorporated Association</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trust</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client_Inactive_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the date of when the last Policy on this Account has Expired or been Cancelled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the date of when the last Policy on this Account has Expired or been Cancelled.</inlineHelpText>
+        <label>Client Inactive Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Client_Review_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the date of when you need to review the Client Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the date of when you need to review the Client Account.</inlineHelpText>
+        <label>Client Review Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Count_Active_Policies__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to count the number of Active Policies related to this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to count the number of Active Policies related to this Account.</inlineHelpText>
+        <label>Active Policies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Bureau_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter identifier: The identifier assigned by the credit bureau for the risk.</description>
+        <externalId>false</externalId>
+        <label>Credit Bureau ID#</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Bureau__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter text: The code identifies an external source that may be used to provide financial or credit information.  For example, a Dun and Bradstreet Number, TRW number, Equifax, Trans-Union, etc.</description>
+        <externalId>false</externalId>
+        <label>Credit Bureau</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomerPriority__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Priority of the Customer. -- High, Medium, Low</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Priority of the Customer. -- High, Medium, Low</inlineHelpText>
+        <label>Customer Priority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Doing_Business_As_DBA__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the &apos;Doing Business As&apos; Name for this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the &apos;Doing Business As&apos; Name for this Account.</inlineHelpText>
+        <label>Doing Business As (DBA)</label>
+        <length>75</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employer_Id_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Employer Identification Number or Tax Identification Number for this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Employer Identification Number or Tax Identification Number for this Account.</inlineHelpText>
+        <label>Employer Id Number</label>
+        <length>75</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enroller__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Market Place Enrollment tracking.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Market Place Enrollment tracking.</inlineHelpText>
+        <label>Enroller</label>
+        <referenceTo>Producers__c</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FEIN__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>FEIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GL_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter code: The code identifying the general liability nature of business for the insured. The source of this code list is the Insurance Services Office Commercial Lines Manual (CLM) or individual insurer rate manuals.</inlineHelpText>
+        <label>GL Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gross_Policy_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Gross Policy Payments for ALL Policies related to this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Gross Policy Payments for ALL Policies related to this Account.</inlineHelpText>
+        <label>Gross Policy Payments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Group_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Group Type of the Account. -- Self, Small, Medium, Large</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Group Type of the Account. -- Self, Small, Medium, Large</inlineHelpText>
+        <label>Group Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self Insured</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2-49 [Small]</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50-100 [Medium]</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>101-Plus [Large]</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Installation_Receipts_Next_12_Months__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Receipts Next 12 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Installation_Receipts_Past_12_Months__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Receipts Past 12 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Installation_Service_Repair__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Installation/Service/Repair</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Known_Since__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date since which the named insured has been known by the producer</description>
+        <externalId>false</externalId>
+        <label>Known Since</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LLC_Member_Manager_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Member &amp; Manager Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAICS__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>NAICS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NCCI_Risk_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The nine-digit number assigned to the insured by the National Council on Compensation Insurance (NCCI). This number is required in most states before a policy can be issued.  It also helps insure timely and accurate calculation of experience modifications</inlineHelpText>
+        <label>NCCI Risk ID#</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record general notes about the Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record general notes about the Account.</inlineHelpText>
+        <label>Notes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>NumberofLocations__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the number of locations for the Business.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the number of locations for the Business.</inlineHelpText>
+        <label>Number of Locations</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Off_Premises_Installation_Service_Repair__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Off Premises Installation/Service/Repair</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Operations__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Operations</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Rating_or_Reg_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The state&apos;s rating bureau may assign a separate identification number if the applicant is subject to experience rating in an independent bureau state. In Minnesota, use this box to record the insured&apos;s unemployment account number, as required by the state</inlineHelpText>
+        <label>Other Rating or Reg ID</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payroll_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Payroll Frequency of the Account. -- Weekly, Bi-Weekly, Monthly, Twice a Month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Payroll Frequency of the Account. -- Weekly, Bi-Weekly, Monthly, Twice a Month</inlineHelpText>
+        <label>Payroll Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Weekly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bi-Weekly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Twice a Month</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Phone_2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Secondary Phone Number for the Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Secondary Phone Number for the Account.</inlineHelpText>
+        <label>Other Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Primary Contact for this Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Primary Contact for this Account.</inlineHelpText>
+        <label>Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SLAExpirationDate_del__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Expiration Date for the Service Level Agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Expiration Date for the Service Level Agreement.</inlineHelpText>
+        <label>SLA Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SLASerialNumber_del__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Serial Number for the Service Level Agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Serial Number for the Service Level Agreement.</inlineHelpText>
+        <label>SLA Serial Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SLA__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Service Level Agreement for the Account. -- Bronze, Silver, Gold, Platinum</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the Service Level Agreement for the Account. -- Bronze, Silver, Gold, Platinum</inlineHelpText>
+        <label>SLA</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bronze</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Silver</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Platinum</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Shipping_Interest__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the insureds interest in property being shipped</inlineHelpText>
+        <label>Shipping Interest</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Common Carrier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contract Carrier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shipper of Owned Property</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account_Subsource__r.Cost_Each__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Source Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Source_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the Source Type of the Account. Where did the Account originate from? Referral, Ad/Marketing, etc.</description>
+        <externalId>false</externalId>
+        <formula>Account_Source__r.Source_Type__r.Name</formula>
+        <inlineHelpText>Use this field to record the Source Type of the Account. Where did the Account originate from? Referral, Ad/Marketing, etc.</inlineHelpText>
+        <label>Source Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Territory__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter text: The territory where the applicant&apos;s job sites are located, including job site name, city, county and state.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter text: The territory where the applicant&apos;s job sites are located, including job site name, city, county and state.</inlineHelpText>
+        <label>Territory</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>To_Be_Reviewed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Use this field to designate if the Account needs to be reviewed from the Account Assignments Tab. When checked, this Account would be flagged for review to check for duplicate Accounts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to designate if the Account needs to be reviewed from the Account Assignments Tab. When checked, this Account would be flagged for review to check for duplicate Accounts.</inlineHelpText>
+        <label>To Be Reviewed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Year_Established__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the year that the Business Account was established.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the year that the Business Account was established.</inlineHelpText>
+        <label>Year Established</label>
+        <length>75</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Years_in_Business__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter number: The number of years the account has been in business.</inlineHelpText>
+        <label>Years in Business</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>last_cross_sell_attempt_date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>last cross sell attempt date</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Benefit_Eligible_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the number of Eligible Employees that will receive benefits.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the number of Eligible Employees that will receive benefits.</inlineHelpText>
+        <label># of Benefit Eligible Employees</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_FT_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the number of Full-Time Employees.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the number of Full-Time Employees.</inlineHelpText>
+        <label># of FT Employees</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_PT_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Use this field to record the number of Part-Time Employees.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to record the number of Part-Time Employees.</inlineHelpText>
+        <label># of PT Employees</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <columns>ACCOUNT.OWNERSHIP</columns>
+        <columns>Count_Active_Policies__c</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>Primary_Contact__c</columns>
+        <columns>Notes__c</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Business_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Business</value>
+        </filters>
+        <label>All Business Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Personal_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Person</value>
+        </filters>
+        <label>All Personal Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MyAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <recordTypes>
+        <fullName>Business</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>TC_AMS</compactLayoutAssignment>
+        <description>Business</description>
+        <label>Business</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Active__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Structure__c</picklist>
+            <values>
+                <fullName>C Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Venture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonprofit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trust</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unincorporated Association</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group_Type__c</picklist>
+            <values>
+                <fullName>101-Plus %5BLarge%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-49 %5BSmall%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50-100 %5BMedium%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payroll_Frequency__c</picklist>
+            <values>
+                <fullName>Bi-Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twice a Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Shipping_Interest__c</picklist>
+            <values>
+                <fullName>Common Carrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Carrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipper of Owned Property</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Channel Partner %2F Reseller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer - Channel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer - Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installation Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Person</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>TC_AMS</compactLayoutAssignment>
+        <description>Person</description>
+        <label>Person</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Active__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Structure__c</picklist>
+            <values>
+                <fullName>C Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group_Type__c</picklist>
+            <values>
+                <fullName>101-Plus %5BLarge%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-49 %5BSmall%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50-100 %5BMedium%5D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payroll_Frequency__c</picklist>
+            <values>
+                <fullName>Bi-Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twice a Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Shipping_Interest__c</picklist>
+            <values>
+                <fullName>Common Carrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Carrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipper of Owned Property</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Channel Partner %2F Reseller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer - Channel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer - Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installation Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <webLinks>
+        <fullName>Cross_Sell</fullName>
+        <availability>online</availability>
+        <description>This button opens the page that Allow Cross sell opportunities for insurance Quotes related to an Account.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Cross Sell</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/CanaryAMS__CrossSellQuotePage?Id={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_Email</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send Email</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/canaryams__sendEmail?Id={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_Document</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Document</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Account.Id}</url>
+    </webLinks>
+</CustomObject>

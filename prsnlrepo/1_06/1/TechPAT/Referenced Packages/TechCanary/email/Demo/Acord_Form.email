@@ -1,0 +1,10 @@
+Please find your Acord form here: {!Accord_PDF__c.Locked_Link__c}
+
+If you need anything else please let me know. 
+
+Regards, 
+
+{!User.Name}
+{!User.Title}
+{!User.CompanyName}
+{!User.Phone}

@@ -1,0 +1,17 @@
+.THIS .button-section > button {
+	margin: 24px;
+}
+
+.THIS .record-type-section .slds-form-element {
+	margin: 24px;
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.THIS .center-card {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+
+}

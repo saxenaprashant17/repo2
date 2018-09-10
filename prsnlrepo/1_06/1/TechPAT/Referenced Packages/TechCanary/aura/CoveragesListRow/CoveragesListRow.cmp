@@ -1,0 +1,63 @@
+<aura:component controller="CanaryAMS.CoveragesListController">
+	<aura:dependency resource="markup://force:editRecord" type="EVENT" />
+    <aura:handler name="handleRefreshView" event="force:refreshView" action="{!c.refreshList}" />
+	<aura:registerEvent name="coveragesListEvent" type="CanaryAMS:CoveragesListEvent"/>
+	<aura:attribute name="coveragesMap" type="Map" />
+	<aura:attribute name="coverage" type="CanaryAMS__Coverage__c" default="{ 'sobjectType':'CanaryAMS__Coverage__c' }"/>
+	<aura:attribute name="parentRecordId" type="Id" />
+	<aura:attribute name="lookup1Value" type="String" />
+	<aura:attribute name="showRelatedToColumn" type="Boolean" default="false" />
+	<aura:attribute name="showDeductiblePercentage" type="Boolean" default="false" />
+	<aura:attribute name="showDeductibleDollar" type="Boolean" default="false" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<tr>
+		<td scope="row" data-label="Coverage Name">
+			<div class="slds-truncate" title="{!v.coverage.Name}">
+				<a href="javascript:void(0);" onclick="{!c.navigateToRecord}">
+					{!v.coverage.Name}&nbsp;({!v.coverage.CanaryAMS__Coverage_Code__c})
+				</a>
+			</div>
+		</td>
+		<aura:if isTrue="{!v.showRelatedToColumn}">
+			<td>
+				<div class="slds-truncate">
+					{!v.lookup1Value}
+				</div>
+			</td>
+		</aura:if>
+		<td data-label="Coverage Limit 1">
+			<lightning:input variant="label-hidden" type="number" step="1" onblur="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Limit_Format_Integer__c}" />
+		</td>
+		<td data-label="Coverage Limit 2">
+			<lightning:input variant="label-hidden" type="number" step="1" onblur="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Coverage_Limit_2__c}" />
+		</td>
+		<td data-label="Deductible">
+			<div class="slds-grid">
+				<div class="slds-col">
+					<lightning:select class="deductible-type" variant="label-hidden" onchange="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Deductible_Type_Code__c}" >
+						<option value="FL">$</option>
+		        		<option value="PT">%</option>
+					</lightning:select>
+				</div>
+				<div class="slds-col" style="width: 100%; padding-left: 10px;">
+					<aura:if isTrue="{!v.showDeductibleDollar}">
+						<lightning:input variant="label-hidden" type="number" step="1" onblur="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Deductible_Format_Integer__c}" />
+					</aura:if>
+					<aura:if isTrue="{!v.showDeductiblePercentage}">
+						<lightning:input variant="label-hidden" type="number" onblur="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Percentage_Deductible__c}" />
+					</aura:if>
+				</div>
+			</div>
+		</td>
+		<td data-label="Term Amount">
+			<lightning:input variant="label-hidden" type="number" step="0.01" formatter="currency" onblur="{!c.saveCoverage}" value="{!v.coverage.CanaryAMS__Current_Term_Amount__c}" />
+		</td>
+		<td data-label="Show More">
+			<lightning:buttonMenu iconSize="x-small" iconName="utility:down" alternativeText="Show More" onselect="{!c.selectMenuItem}">
+			    <lightning:menuItem label="Edit" value="Edit" />
+			    <lightning:menuItem label="Delete" value="Delete"/>
+			</lightning:buttonMenu>
+		</td>
+	</tr>
+</aura:component>
